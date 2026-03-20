@@ -6,8 +6,20 @@ module = "builtin:chat"
 tags = ["research", "academic", "papers", "literature-review", "science"]
 
 [metadata.routing]
-aliases = ["academic research", "literature review", "paper search", "scholarly research", "find papers"]
-weak_aliases = ["papers", "citations", "bibliography", "systematic review", "meta-analysis"]
+aliases = [
+  "academic research",
+  "literature review",
+  "paper search",
+  "scholarly research",
+  "find papers",
+]
+weak_aliases = [
+  "papers",
+  "citations",
+  "bibliography",
+  "systematic review",
+  "meta-analysis",
+]
 
 [model]
 provider = "default"
@@ -76,7 +88,15 @@ max_llm_tokens_per_hour = 200000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["web_search", "web_fetch", "file_read", "file_write", "file_list", "memory_store", "memory_recall"]
+tools = [
+  "web_search",
+  "web_fetch",
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

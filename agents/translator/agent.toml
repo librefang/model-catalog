@@ -3,10 +3,23 @@ version = "0.4.3-beta3-20260314"
 description = "Multi-language translation agent for document translation, localization, and cross-cultural communication."
 author = "librefang"
 module = "builtin:chat"
-tags = ["translation", "languages", "localization", "multilingual", "communication", "i18n"]
+tags = [
+  "translation",
+  "languages",
+  "localization",
+  "multilingual",
+  "communication",
+  "i18n",
+]
 
 [metadata.routing]
-aliases = ["translate document", "translation task", "localize content", "language translation", "i18n review"]
+aliases = [
+  "translate document",
+  "translation task",
+  "localize content",
+  "language translation",
+  "i18n review",
+]
 weak_aliases = ["translation", "localization", "multilingual", "translate"]
 
 [model]
@@ -63,7 +76,14 @@ max_llm_tokens_per_hour = 200000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

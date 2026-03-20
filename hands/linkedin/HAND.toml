@@ -3,7 +3,23 @@ name = "LinkedIn Hand"
 description = "Autonomous LinkedIn manager — profile optimization, content creation, networking, and professional engagement"
 category = "communication"
 icon = "\U0001F4BC"
-tools = ["shell_exec", "file_read", "file_write", "file_list", "web_fetch", "web_search", "memory_store", "memory_recall", "schedule_create", "schedule_list", "schedule_delete", "knowledge_add_entity", "knowledge_add_relation", "knowledge_query", "event_publish"]
+tools = [
+  "shell_exec",
+  "file_read",
+  "file_write",
+  "file_list",
+  "web_fetch",
+  "web_search",
+  "memory_store",
+  "memory_recall",
+  "schedule_create",
+  "schedule_list",
+  "schedule_delete",
+  "knowledge_add_entity",
+  "knowledge_add_relation",
+  "knowledge_query",
+  "event_publish",
+]
 
 [routing]
 aliases = ["linkedin", "profile optimization", "professional networking"]
@@ -22,12 +38,12 @@ docs_url = "https://learn.microsoft.com/en-us/linkedin/shared/authentication/aut
 env_example = "LINKEDIN_ACCESS_TOKEN=your_access_token_here"
 estimated_time = "10-15 min"
 steps = [
-    "Go to linkedin.com/developers/apps and sign in",
-    "Create a new app (requires a LinkedIn Page for verification)",
-    "Request the w_member_social, profile, and openid OAuth scopes",
-    "Complete OAuth 2.0 authorization code flow to obtain an access token",
-    "Set LINKEDIN_ACCESS_TOKEN as an environment variable",
-    "Restart LibreFang or reload config for the change to take effect",
+  "Go to linkedin.com/developers/apps and sign in",
+  "Create a new app (requires a LinkedIn Page for verification)",
+  "Request the w_member_social, profile, and openid OAuth scopes",
+  "Complete OAuth 2.0 authorization code flow to obtain an access token",
+  "Set LINKEDIN_ACCESS_TOKEN as an environment variable",
+  "Restart LibreFang or reload config for the change to take effect",
 ]
 
 # ─── Configurable settings ───────────────────────────────────────────────────

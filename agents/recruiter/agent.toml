@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["recruiting", "hiring", "resume", "outreach", "talent", "hr"]
 
 [metadata.routing]
-aliases = ["candidate screening", "recruiting outreach", "resume review", "hiring pipeline", "job description"]
+aliases = [
+  "candidate screening",
+  "recruiting outreach",
+  "resume review",
+  "hiring pipeline",
+  "job description",
+]
 weak_aliases = ["recruiting", "hiring", "resume", "talent"]
 
 [model]
@@ -68,7 +74,14 @@ max_llm_tokens_per_hour = 150000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

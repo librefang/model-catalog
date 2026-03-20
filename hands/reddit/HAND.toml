@@ -3,7 +3,23 @@ name = "Reddit Hand"
 description = "Autonomous Reddit manager — monitors subreddits, posts content, replies to threads, and tracks karma and engagement"
 category = "communication"
 icon = "\U0001F4E2"
-tools = ["shell_exec", "file_read", "file_write", "file_list", "web_fetch", "web_search", "memory_store", "memory_recall", "schedule_create", "schedule_list", "schedule_delete", "knowledge_add_entity", "knowledge_add_relation", "knowledge_query", "event_publish"]
+tools = [
+  "shell_exec",
+  "file_read",
+  "file_write",
+  "file_list",
+  "web_fetch",
+  "web_search",
+  "memory_store",
+  "memory_recall",
+  "schedule_create",
+  "schedule_list",
+  "schedule_delete",
+  "knowledge_add_entity",
+  "knowledge_add_relation",
+  "knowledge_query",
+  "event_publish",
+]
 
 [routing]
 aliases = ["reddit", "subreddit", "reddit post", "reddit monitor"]
@@ -22,13 +38,13 @@ docs_url = "https://www.reddit.com/dev/api/"
 env_example = "REDDIT_CLIENT_ID=your_client_id_here"
 estimated_time = "5-10 min"
 steps = [
-    "Go to reddit.com/prefs/apps and sign in",
-    "Click 'create another app...' at the bottom",
-    "Select 'script' as the app type",
-    "Fill in name and redirect URI (http://localhost:8080)",
-    "Copy the client ID (under the app name) and secret",
-    "Set REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USERNAME, and REDDIT_PASSWORD as environment variables",
-    "Restart LibreFang or reload config for the change to take effect",
+  "Go to reddit.com/prefs/apps and sign in",
+  "Click 'create another app...' at the bottom",
+  "Select 'script' as the app type",
+  "Fill in name and redirect URI (http://localhost:8080)",
+  "Copy the client ID (under the app name) and secret",
+  "Set REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USERNAME, and REDDIT_PASSWORD as environment variables",
+  "Restart LibreFang or reload config for the change to take effect",
 ]
 
 [[requires]]
@@ -44,13 +60,13 @@ docs_url = "https://www.reddit.com/dev/api/"
 env_example = "REDDIT_CLIENT_SECRET=your_client_secret_here"
 estimated_time = "5-10 min"
 steps = [
-    "Go to reddit.com/prefs/apps and sign in",
-    "Click 'create another app...' at the bottom",
-    "Select 'script' as the app type",
-    "Fill in name and redirect URI (http://localhost:8080)",
-    "Copy the secret shown below the app description",
-    "Set REDDIT_CLIENT_SECRET as an environment variable",
-    "Restart LibreFang or reload config for the change to take effect",
+  "Go to reddit.com/prefs/apps and sign in",
+  "Click 'create another app...' at the bottom",
+  "Select 'script' as the app type",
+  "Fill in name and redirect URI (http://localhost:8080)",
+  "Copy the secret shown below the app description",
+  "Set REDDIT_CLIENT_SECRET as an environment variable",
+  "Restart LibreFang or reload config for the change to take effect",
 ]
 
 [[requires]]
@@ -66,9 +82,9 @@ docs_url = "https://www.reddit.com/dev/api/"
 env_example = "REDDIT_USERNAME=your_reddit_username"
 estimated_time = "1-2 min"
 steps = [
-    "Use the Reddit account username you want the hand to act as",
-    "Set REDDIT_USERNAME as an environment variable",
-    "Restart LibreFang or reload config for the change to take effect",
+  "Use the Reddit account username you want the hand to act as",
+  "Set REDDIT_USERNAME as an environment variable",
+  "Restart LibreFang or reload config for the change to take effect",
 ]
 
 [[requires]]
@@ -84,9 +100,9 @@ docs_url = "https://www.reddit.com/dev/api/"
 env_example = "REDDIT_PASSWORD=your_reddit_password"
 estimated_time = "1-2 min"
 steps = [
-    "Use the password for the Reddit account configured in REDDIT_USERNAME",
-    "Set REDDIT_PASSWORD as an environment variable",
-    "Restart LibreFang or reload config for the change to take effect",
+  "Use the password for the Reddit account configured in REDDIT_USERNAME",
+  "Set REDDIT_PASSWORD as an environment variable",
+  "Restart LibreFang or reload config for the change to take effect",
 ]
 
 # ─── Configurable settings ───────────────────────────────────────────────────

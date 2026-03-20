@@ -5,7 +5,13 @@ author = "librefang"
 module = "builtin:chat"
 
 [metadata.routing]
-aliases = ["project plan", "roadmap planning", "task breakdown", "delivery plan", "execution plan"]
+aliases = [
+  "project plan",
+  "roadmap planning",
+  "task breakdown",
+  "delivery plan",
+  "execution plan",
+]
 weak_aliases = ["timeline", "milestones", "dependencies", "plan"]
 
 [model]
@@ -49,7 +55,13 @@ api_key_env = "GEMINI_API_KEY"
 max_llm_tokens_per_hour = 200000
 
 [capabilities]
-tools = ["file_read", "file_list", "memory_store", "memory_recall", "agent_send"]
+tools = [
+  "file_read",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "agent_send",
+]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]
 agent_message = ["*"]

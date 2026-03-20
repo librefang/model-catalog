@@ -3,10 +3,23 @@ version = "0.4.3-beta3-20260314"
 description = "Email triage, drafting, scheduling, and inbox management agent."
 author = "librefang"
 module = "builtin:chat"
-tags = ["email", "communication", "triage", "drafting", "scheduling", "productivity"]
+tags = [
+  "email",
+  "communication",
+  "triage",
+  "drafting",
+  "scheduling",
+  "productivity",
+]
 
 [metadata.routing]
-aliases = ["draft email", "email reply", "inbox triage", "email follow up", "compose email"]
+aliases = [
+  "draft email",
+  "email reply",
+  "inbox triage",
+  "email follow up",
+  "compose email",
+]
 weak_aliases = ["email", "inbox", "follow-up"]
 
 [model]
@@ -60,7 +73,14 @@ max_llm_tokens_per_hour = 150000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

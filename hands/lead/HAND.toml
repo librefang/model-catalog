@@ -4,10 +4,30 @@ description = "Autonomous lead generation — discovers, enriches, and delivers 
 category = "data"
 icon = "📊"
 
-tools = ["shell_exec", "file_read", "file_write", "file_list", "web_fetch", "web_search", "memory_store", "memory_recall", "schedule_create", "schedule_list", "schedule_delete", "knowledge_add_entity", "knowledge_add_relation", "knowledge_query"]
+tools = [
+  "shell_exec",
+  "file_read",
+  "file_write",
+  "file_list",
+  "web_fetch",
+  "web_search",
+  "memory_store",
+  "memory_recall",
+  "schedule_create",
+  "schedule_list",
+  "schedule_delete",
+  "knowledge_add_entity",
+  "knowledge_add_relation",
+  "knowledge_query",
+]
 
 [routing]
-aliases = ["lead generation", "prospect list", "find customers", "contact enrichment"]
+aliases = [
+  "lead generation",
+  "prospect list",
+  "find customers",
+  "contact enrichment",
+]
 weak_aliases = ["sales", "outreach", "company list"]
 
 # ─── Configurable settings ───────────────────────────────────────────────────

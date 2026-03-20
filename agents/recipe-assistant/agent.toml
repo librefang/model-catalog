@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["cooking", "recipes", "meal-planning", "nutrition", "food"]
 
 [metadata.routing]
-aliases = ["recipe helper", "meal planner", "cooking assistant", "recipe finder", "meal prep"]
+aliases = [
+  "recipe helper",
+  "meal planner",
+  "cooking assistant",
+  "recipe finder",
+  "meal prep",
+]
 weak_aliases = ["recipe", "cooking", "meal", "ingredients", "dinner", "food"]
 
 [model]
@@ -63,7 +69,15 @@ max_llm_tokens_per_hour = 100000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch", "web_search"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+  "web_search",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*"]

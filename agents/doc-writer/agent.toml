@@ -5,7 +5,13 @@ author = "librefang"
 module = "builtin:chat"
 
 [metadata.routing]
-aliases = ["write documentation", "technical documentation", "api documentation", "architecture guide", "readme update"]
+aliases = [
+  "write documentation",
+  "technical documentation",
+  "api documentation",
+  "architecture guide",
+  "readme update",
+]
 weak_aliases = ["docs", "readme", "tutorial", "reference doc"]
 
 [model]
@@ -45,6 +51,12 @@ api_key_env = "GEMINI_API_KEY"
 max_llm_tokens_per_hour = 200000
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["smart-home", "iot", "automation", "devices", "monitoring", "home"]
 
 [metadata.routing]
-aliases = ["smart home", "home automation", "iot automation", "device automation", "automation rule"]
+aliases = [
+  "smart home",
+  "home automation",
+  "iot automation",
+  "device automation",
+  "automation rule",
+]
 weak_aliases = ["iot", "smart devices", "home assistant"]
 
 [model]
@@ -64,7 +70,15 @@ max_llm_tokens_per_hour = 100000
 max_concurrent_tools = 10
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "shell_exec", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "shell_exec",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

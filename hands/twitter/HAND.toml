@@ -3,7 +3,23 @@ name = "Twitter Hand"
 description = "Autonomous Twitter/X manager — content creation, scheduled posting, engagement, and performance tracking"
 category = "communication"
 icon = "\U0001D54F"
-tools = ["shell_exec", "file_read", "file_write", "file_list", "web_fetch", "web_search", "memory_store", "memory_recall", "schedule_create", "schedule_list", "schedule_delete", "knowledge_add_entity", "knowledge_add_relation", "knowledge_query", "event_publish"]
+tools = [
+  "shell_exec",
+  "file_read",
+  "file_write",
+  "file_list",
+  "web_fetch",
+  "web_search",
+  "memory_store",
+  "memory_recall",
+  "schedule_create",
+  "schedule_list",
+  "schedule_delete",
+  "knowledge_add_entity",
+  "knowledge_add_relation",
+  "knowledge_query",
+  "event_publish",
+]
 
 [routing]
 aliases = ["twitter", "tweet", "x.com", "scheduled tweet"]
@@ -22,12 +38,12 @@ docs_url = "https://developer.twitter.com/en/docs/authentication/oauth-2-0/beare
 env_example = "TWITTER_BEARER_TOKEN=AAAA...your_token_here"
 estimated_time = "5-10 min"
 steps = [
-    "Go to developer.twitter.com and sign in with your Twitter/X account",
-    "Create a new Project and App (free tier is fine for reading)",
-    "Navigate to your App's 'Keys and tokens' page",
-    "Generate a Bearer Token under 'Authentication Tokens'",
-    "Copy the token and set it as an environment variable",
-    "Restart LibreFang or reload config for the change to take effect",
+  "Go to developer.twitter.com and sign in with your Twitter/X account",
+  "Create a new Project and App (free tier is fine for reading)",
+  "Navigate to your App's 'Keys and tokens' page",
+  "Generate a Bearer Token under 'Authentication Tokens'",
+  "Copy the token and set it as an environment variable",
+  "Restart LibreFang or reload config for the change to take effect",
 ]
 
 # ─── Configurable settings ───────────────────────────────────────────────────

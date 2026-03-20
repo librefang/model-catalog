@@ -4,11 +4,41 @@ description = "Autonomous DevOps engineer — CI/CD management, infrastructure m
 category = "development"
 icon = "👷"
 
-tools = ["shell_exec", "file_read", "file_write", "file_list", "web_fetch", "web_search", "memory_store", "memory_recall", "schedule_create", "schedule_list", "schedule_delete", "knowledge_add_entity", "knowledge_add_relation", "knowledge_query", "event_publish"]
+tools = [
+  "shell_exec",
+  "file_read",
+  "file_write",
+  "file_list",
+  "web_fetch",
+  "web_search",
+  "memory_store",
+  "memory_recall",
+  "schedule_create",
+  "schedule_list",
+  "schedule_delete",
+  "knowledge_add_entity",
+  "knowledge_add_relation",
+  "knowledge_query",
+  "event_publish",
+]
 
 [routing]
-aliases = ["ci/cd", "pipeline", "github actions", "infrastructure monitoring", "deployment automation", "incident response"]
-weak_aliases = ["deploy", "kubernetes", "docker", "container", "terraform", "helm"]
+aliases = [
+  "ci/cd",
+  "pipeline",
+  "github actions",
+  "infrastructure monitoring",
+  "deployment automation",
+  "incident response",
+]
+weak_aliases = [
+  "deploy",
+  "kubernetes",
+  "docker",
+  "container",
+  "terraform",
+  "helm",
+]
 
 # ─── Configurable settings ───────────────────────────────────────────────────
 

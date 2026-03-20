@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["legal", "contracts", "compliance", "research", "review", "documents"]
 
 [metadata.routing]
-aliases = ["legal review", "contract review", "compliance check", "legal research", "draft legal document"]
+aliases = [
+  "legal review",
+  "contract review",
+  "compliance check",
+  "legal research",
+  "draft legal document",
+]
 weak_aliases = ["legal", "contract", "compliance"]
 
 [model]
@@ -71,7 +77,14 @@ max_llm_tokens_per_hour = 200000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

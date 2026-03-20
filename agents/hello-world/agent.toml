@@ -5,7 +5,13 @@ author = "librefang"
 module = "builtin:chat"
 
 [metadata.routing]
-aliases = ["hello world", "greeting", "say hello", "introduce yourself", "new user welcome"]
+aliases = [
+  "hello world",
+  "greeting",
+  "say hello",
+  "introduce yourself",
+  "new user welcome",
+]
 weak_aliases = ["hello", "welcome", "intro", "getting started"]
 
 [model]
@@ -26,7 +32,14 @@ Keep responses brief (2-4 paragraphs max) unless the user asks for detail."""
 max_llm_tokens_per_hour = 100000
 
 [capabilities]
-tools = ["file_read", "file_list", "web_fetch", "web_search", "memory_store", "memory_recall"]
+tools = [
+  "file_read",
+  "file_list",
+  "web_fetch",
+  "web_search",
+  "memory_store",
+  "memory_recall",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*"]

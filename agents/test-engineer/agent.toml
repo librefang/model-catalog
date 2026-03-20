@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["testing", "qa", "validation"]
 
 [metadata.routing]
-aliases = ["test plan", "write tests", "quality assurance", "test strategy", "validation plan"]
+aliases = [
+  "test plan",
+  "write tests",
+  "quality assurance",
+  "test strategy",
+  "validation plan",
+]
 weak_aliases = ["testing", "qa", "validation", "test coverage"]
 
 [model]
@@ -51,7 +57,14 @@ api_key_env = "GROQ_API_KEY"
 max_llm_tokens_per_hour = 150000
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "shell_exec", "memory_store", "memory_recall"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "shell_exec",
+  "memory_store",
+  "memory_recall",
+]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]
 shell = ["cargo test *", "cargo check *"]

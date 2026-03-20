@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["review", "code-quality", "best-practices"]
 
 [metadata.routing]
-aliases = ["code review", "review this pr", "review this patch", "review this diff", "pull request review"]
+aliases = [
+  "code review",
+  "review this pr",
+  "review this patch",
+  "review this diff",
+  "pull request review",
+]
 weak_aliases = ["review", "pr review", "best practices"]
 
 [model]
@@ -46,7 +52,13 @@ api_key_env = "GROQ_API_KEY"
 max_llm_tokens_per_hour = 150000
 
 [capabilities]
-tools = ["file_read", "file_list", "shell_exec", "memory_store", "memory_recall"]
+tools = [
+  "file_read",
+  "file_list",
+  "shell_exec",
+  "memory_store",
+  "memory_recall",
+]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]
 shell = ["cargo clippy *", "cargo fmt *", "git diff *", "git log *"]

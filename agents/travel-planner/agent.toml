@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["travel", "planning", "itinerary", "booking", "logistics", "vacation"]
 
 [metadata.routing]
-aliases = ["trip itinerary", "travel plan", "vacation planning", "booking research", "travel logistics"]
+aliases = [
+  "trip itinerary",
+  "travel plan",
+  "vacation planning",
+  "booking research",
+  "travel logistics",
+]
 weak_aliases = ["itinerary", "travel", "vacation", "hotel", "flight"]
 
 [model]
@@ -63,7 +69,21 @@ max_llm_tokens_per_hour = 150000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_search", "web_fetch", "browser_navigate", "browser_click", "browser_type", "browser_read_page", "browser_screenshot", "browser_close"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_search",
+  "web_fetch",
+  "browser_navigate",
+  "browser_click",
+  "browser_type",
+  "browser_read_page",
+  "browser_screenshot",
+  "browser_close",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

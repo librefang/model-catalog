@@ -3,10 +3,23 @@ version = "0.4.3-beta3-20260314"
 description = "General-purpose assistant agent. The default OpenClaw agent for everyday tasks, questions, and conversations."
 author = "librefang"
 module = "builtin:chat"
-tags = ["general", "assistant", "default", "multipurpose", "conversation", "productivity"]
+tags = [
+  "general",
+  "assistant",
+  "default",
+  "multipurpose",
+  "conversation",
+  "productivity",
+]
 
 [metadata.routing]
-aliases = ["general help", "general assistant", "everyday questions", "help with this", "general support"]
+aliases = [
+  "general help",
+  "general assistant",
+  "everyday questions",
+  "help with this",
+  "general support",
+]
 weak_aliases = ["assistant", "general", "conversation", "help"]
 
 [model]
@@ -74,7 +87,17 @@ max_llm_tokens_per_hour = 300000
 max_concurrent_tools = 10
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch", "shell_exec", "agent_send", "agent_list"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+  "shell_exec",
+  "agent_send",
+  "agent_list",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

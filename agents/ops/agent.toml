@@ -5,7 +5,13 @@ author = "librefang"
 module = "builtin:chat"
 
 [metadata.routing]
-aliases = ["service status", "restore service", "operations incident", "run diagnostics", "system operations"]
+aliases = [
+  "service status",
+  "restore service",
+  "operations incident",
+  "run diagnostics",
+  "system operations",
+]
 weak_aliases = ["ops", "outage", "incident", "status page"]
 
 [model]
@@ -42,4 +48,12 @@ max_llm_tokens_per_hour = 50000
 tools = ["shell_exec", "file_read", "file_list"]
 memory_read = ["*"]
 memory_write = ["self.*"]
-shell = ["docker *", "git *", "cargo *", "systemctl *", "ps *", "df *", "free *"]
+shell = [
+  "docker *",
+  "git *",
+  "cargo *",
+  "systemctl *",
+  "ps *",
+  "df *",
+  "free *",
+]

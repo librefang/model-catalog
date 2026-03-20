@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["sales", "crm", "outreach", "pipeline", "prospecting", "deals"]
 
 [metadata.routing]
-aliases = ["sales outreach", "crm update", "prospecting", "pipeline review", "deal tracking"]
+aliases = [
+  "sales outreach",
+  "crm update",
+  "prospecting",
+  "pipeline review",
+  "deal tracking",
+]
 weak_aliases = ["sales", "crm", "pipeline", "leads"]
 
 [model]
@@ -67,7 +73,14 @@ max_llm_tokens_per_hour = 150000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

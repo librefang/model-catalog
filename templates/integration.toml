@@ -1,7 +1,7 @@
 id = "{{NAME}}"
 name = "TODO: Service Display Name"
 description = "TODO: One-sentence description of this integration."
-category = "devtools"  # devtools | communication | storage | monitoring | data | productivity
+category = "devtools"                                               # devtools | communication | storage | monitoring | data | productivity
 icon = "TODO"
 tags = ["TODO"]
 

@@ -11,7 +11,7 @@ key_required = true
 [[models]]
 id = "TODO-model-id"
 display_name = "TODO: Model Display Name"
-tier = "balanced"  # frontier | smart | balanced | fast | local
+tier = "balanced"                         # frontier | smart | balanced | fast | local
 context_window = 128000
 max_output_tokens = 4096
 input_cost_per_m = 0.0

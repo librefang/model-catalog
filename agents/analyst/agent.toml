@@ -5,7 +5,13 @@ author = "librefang"
 module = "builtin:chat"
 
 [metadata.routing]
-aliases = ["data analysis", "analyze data", "analytics", "metrics analysis", "report analysis"]
+aliases = [
+  "data analysis",
+  "analyze data",
+  "analytics",
+  "metrics analysis",
+  "report analysis",
+]
 weak_aliases = ["dashboard", "kpi", "insights", "reporting"]
 
 [model]
@@ -46,7 +52,16 @@ api_key_env = "GROQ_API_KEY"
 max_llm_tokens_per_hour = 150000
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "shell_exec", "web_search", "web_fetch", "memory_store", "memory_recall"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "shell_exec",
+  "web_search",
+  "web_fetch",
+  "memory_store",
+  "memory_recall",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

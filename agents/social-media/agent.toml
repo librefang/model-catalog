@@ -3,10 +3,23 @@ version = "0.4.3-beta3-20260314"
 description = "Social media content creation, scheduling, and engagement strategy agent."
 author = "librefang"
 module = "builtin:chat"
-tags = ["social-media", "content", "marketing", "engagement", "scheduling", "analytics"]
+tags = [
+  "social-media",
+  "content",
+  "marketing",
+  "engagement",
+  "scheduling",
+  "analytics",
+]
 
 [metadata.routing]
-aliases = ["social media plan", "content calendar", "post scheduling", "engagement strategy", "social campaign"]
+aliases = [
+  "social media plan",
+  "content calendar",
+  "post scheduling",
+  "engagement strategy",
+  "social campaign",
+]
 weak_aliases = ["social media", "content calendar", "engagement", "campaign"]
 
 [model]
@@ -63,7 +76,14 @@ max_llm_tokens_per_hour = 120000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

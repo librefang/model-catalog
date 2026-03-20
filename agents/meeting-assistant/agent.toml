@@ -3,10 +3,23 @@ version = "0.4.3-beta3-20260314"
 description = "Meeting notes, action items, agenda preparation, and follow-up tracking agent."
 author = "librefang"
 module = "builtin:chat"
-tags = ["meetings", "notes", "action-items", "agenda", "follow-up", "productivity"]
+tags = [
+  "meetings",
+  "notes",
+  "action-items",
+  "agenda",
+  "follow-up",
+  "productivity",
+]
 
 [metadata.routing]
-aliases = ["meeting notes", "meeting summary", "action items", "prepare agenda", "meeting follow up"]
+aliases = [
+  "meeting notes",
+  "meeting summary",
+  "action items",
+  "prepare agenda",
+  "meeting follow up",
+]
 weak_aliases = ["agenda", "notes", "meeting recap"]
 
 [model]
@@ -63,6 +76,12 @@ max_llm_tokens_per_hour = 150000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

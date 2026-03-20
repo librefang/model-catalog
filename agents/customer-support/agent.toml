@@ -3,10 +3,23 @@ version = "0.4.3-beta3-20260314"
 description = "Customer support agent for ticket handling, issue resolution, and customer communication."
 author = "librefang"
 module = "builtin:chat"
-tags = ["support", "customer-service", "tickets", "helpdesk", "communication", "resolution"]
+tags = [
+  "support",
+  "customer-service",
+  "tickets",
+  "helpdesk",
+  "communication",
+  "resolution",
+]
 
 [metadata.routing]
-aliases = ["customer support", "support ticket", "help desk", "handle ticket", "reply to customer"]
+aliases = [
+  "customer support",
+  "support ticket",
+  "help desk",
+  "handle ticket",
+  "reply to customer",
+]
 weak_aliases = ["ticket", "support", "customer issue"]
 
 [model]
@@ -68,7 +81,14 @@ max_llm_tokens_per_hour = 200000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]

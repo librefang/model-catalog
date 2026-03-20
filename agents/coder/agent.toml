@@ -6,7 +6,13 @@ module = "builtin:chat"
 tags = ["coding", "implementation", "rust", "python"]
 
 [metadata.routing]
-aliases = ["write code", "implement feature", "fix bug", "coding task", "software engineer"]
+aliases = [
+  "write code",
+  "implement feature",
+  "fix bug",
+  "coding task",
+  "software engineer",
+]
 weak_aliases = ["refactor", "implementation", "patch", "code change"]
 
 [model]
@@ -44,7 +50,16 @@ max_llm_tokens_per_hour = 200000
 max_concurrent_tools = 10
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "shell_exec", "web_search", "web_fetch", "memory_store", "memory_recall"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "shell_exec",
+  "web_search",
+  "web_fetch",
+  "memory_store",
+  "memory_recall",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*"]

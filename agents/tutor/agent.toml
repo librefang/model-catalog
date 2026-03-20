@@ -3,10 +3,23 @@ version = "0.4.3-beta3-20260314"
 description = "Teaching and explanation agent for learning, tutoring, and educational content creation."
 author = "librefang"
 module = "builtin:chat"
-tags = ["education", "teaching", "tutoring", "learning", "explanation", "knowledge"]
+tags = [
+  "education",
+  "teaching",
+  "tutoring",
+  "learning",
+  "explanation",
+  "knowledge",
+]
 
 [metadata.routing]
-aliases = ["teach me", "explain this concept", "tutoring session", "study plan", "learning support"]
+aliases = [
+  "teach me",
+  "explain this concept",
+  "tutoring session",
+  "study plan",
+  "learning support",
+]
 weak_aliases = ["tutoring", "teaching", "learn", "explanation"]
 
 [model]
@@ -64,7 +77,15 @@ max_llm_tokens_per_hour = 200000
 max_concurrent_tools = 5
 
 [capabilities]
-tools = ["file_read", "file_write", "file_list", "memory_store", "memory_recall", "shell_exec", "web_fetch"]
+tools = [
+  "file_read",
+  "file_write",
+  "file_list",
+  "memory_store",
+  "memory_recall",
+  "shell_exec",
+  "web_fetch",
+]
 network = ["*"]
 memory_read = ["*"]
 memory_write = ["self.*", "shared.*"]
