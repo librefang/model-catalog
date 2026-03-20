@@ -45,11 +45,10 @@ stdin:  {"type": "after_turn", "agent_id": "...", "messages": [...]}
 stdout: {"type": "ok"}
 ```
 
-## Current Plugins (7)
+## Current Plugins (6)
 
 | Plugin | Hooks | Description |
 |--------|-------|-------------|
-| echo-memory | ingest, after_turn | Demo plugin that echoes user messages as recalled memories |
 | auto-summarizer | ingest, after_turn | Running conversation summary for long context compression |
 | conversation-logger | after_turn | Logs conversations to JSONL files for auditing and analytics |
 | guardrails | ingest | Safety filter detecting PII, prompt injection, and credential exposure |
