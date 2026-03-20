@@ -21,18 +21,18 @@ jobs:
 
   toml-format-check:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v5
 
       - name: Install taplo
         run: |
-          curl -fsSL https://github.com/tamasfe/taplo/releases/latest/download/taplo-full-linux-x86_64.gz \
+          curl -fsSL https://github.com/tamasfe/taplo/releases/download/0.9.3/taplo-full-linux-x86_64.gz \
             | gunzip > /usr/local/bin/taplo
           chmod +x /usr/local/bin/taplo
 
       - name: Check TOML formatting
-        continue-on-error: true
-        run: taplo fmt --check **/*.toml
+        run: find . -name '*.toml' -not -path './.git/*' | xargs taplo fmt --check
 
   markdown-link-check:
     runs-on: ubuntu-latest
