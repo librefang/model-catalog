@@ -1,0 +1,8 @@
+name = "{{NAME}}"
+version = "0.1.0"
+description = "TODO: What this plugin does"
+author = "TODO: your-name"
+
+[hooks]
+ingest = "hooks/ingest.py"         # Called when user message is received
+after_turn = "hooks/after_turn.py" # Called after each conversation turn

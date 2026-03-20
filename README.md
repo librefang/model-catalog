@@ -27,7 +27,7 @@ librefang-registry/
 │   ├── anthropic.toml
 │   ├── openai.toml
 │   └── ...             (46 providers, 190+ models)
-├── plugins/            # Plugin packages
+├── plugins/            # Plugin packages (10 plugins)
 ├── aliases.toml        # Global model alias mappings
 ├── schema.toml         # Provider/model schema reference
 ├── scripts/
@@ -169,8 +169,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions for each conten
 | Hands | 14 |
 | Integrations | 25 |
 | Skills | 2 |
+| Plugins | 10 |
 | Providers | 46 |
-| Models | 190+ |
+| Models | 220+ |
 | Aliases | 80+ |
 
 ## License

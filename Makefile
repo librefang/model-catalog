@@ -9,6 +9,7 @@ AGENTS_DIR    := agents
 HANDS_DIR     := hands
 INTEGRATIONS_DIR := integrations
 SKILLS_DIR    := skills
+PLUGINS_DIR   := plugins
 PROVIDERS_DIR := providers
 
 # ── Validation ────────────────────────────────────────────────────────────────
@@ -80,6 +81,18 @@ new-skill: ## Scaffold a new skill (usage: make new-skill NAME=my-skill)
 	@echo "Created $(SKILLS_DIR)/$(NAME)/skill.toml"
 	@echo "Next: edit the skill.toml to fill in TODO placeholders."
 
+.PHONY: new-plugin
+new-plugin: ## Scaffold a new plugin (usage: make new-plugin NAME=my-plugin)
+	@if [ -z "$(NAME)" ]; then echo "ERROR: NAME is required. Usage: make new-plugin NAME=my-plugin"; exit 1; fi
+	@if [ -d "$(PLUGINS_DIR)/$(NAME)" ]; then echo "ERROR: Plugin '$(NAME)' already exists."; exit 1; fi
+	@mkdir -p "$(PLUGINS_DIR)/$(NAME)/hooks"
+	@sed 's/{{NAME}}/$(NAME)/g' "$(TEMPLATES_DIR)/plugin.toml" > "$(PLUGINS_DIR)/$(NAME)/plugin.toml"
+	@touch "$(PLUGINS_DIR)/$(NAME)/hooks/ingest.py"
+	@touch "$(PLUGINS_DIR)/$(NAME)/hooks/after_turn.py"
+	@touch "$(PLUGINS_DIR)/$(NAME)/requirements.txt"
+	@echo "Created $(PLUGINS_DIR)/$(NAME)/ with plugin.toml and hooks/"
+	@echo "Next: implement the hook scripts and fill in TODO placeholders."
+
 .PHONY: new-provider
 new-provider: ## Scaffold a new provider (usage: make new-provider NAME=my-provider)
 	@if [ -z "$(NAME)" ]; then echo "ERROR: NAME is required. Usage: make new-provider NAME=my-provider"; exit 1; fi
@@ -102,4 +115,5 @@ help: ## Show this help
 	@echo "  make new-hand NAME=my-hand"
 	@echo "  make new-integration NAME=my-service"
 	@echo "  make new-skill NAME=my-skill"
+	@echo "  make new-plugin NAME=my-plugin"
 	@echo "  make new-provider NAME=my-provider"

@@ -1,5 +1,5 @@
 name: New Content Request
-description: Request addition of an agent, hand, integration, or skill
+description: Request addition of an agent, hand, integration, skill, or plugin
 labels: ["new-content"]
 body:
   - type: dropdown
@@ -12,6 +12,7 @@ body:
         - Hand
         - Integration (MCP server)
         - Skill
+        - Plugin
     validations:
       required: true
 

@@ -6,6 +6,7 @@
 - [ ] Hand (`hands/`)
 - [ ] Integration (`integrations/`)
 - [ ] Skill (`skills/`)
+- [ ] Plugin (`plugins/`)
 - [ ] Provider / Model (`providers/`)
 - [ ] Other
 
@@ -50,3 +51,10 @@
 - [ ] `[runtime].type` is correct
 - [ ] `[input]` documents all parameters
 - [ ] Prompt templates use correct `{{param}}` syntax
+
+### Plugins (if applicable)
+- [ ] `name` matches directory name
+- [ ] `[hooks]` lists at least one hook
+- [ ] All referenced hook files exist and parse without errors
+- [ ] Hook scripts read JSON from stdin and write JSON to stdout
+- [ ] `requirements.txt` present (empty if stdlib-only)
