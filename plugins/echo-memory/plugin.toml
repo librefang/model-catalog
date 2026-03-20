@@ -1,0 +1,8 @@
+name = "echo-memory"
+version = "0.1.0"
+description = "Simple demo plugin that echoes back the user message as a 'recalled memory'"
+author = "librefang"
+
+[hooks]
+ingest = "hooks/ingest.py"
+after_turn = "hooks/after_turn.py"
