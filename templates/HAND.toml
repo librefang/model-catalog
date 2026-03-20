@@ -1,0 +1,33 @@
+id = "{{NAME}}"
+name = "TODO: Display Name"
+description = "TODO: One-sentence description of what this hand does."
+category = "productivity"  # communication | content | data | development | devops | finance | productivity | research | social
+icon = "TODO"
+tools = ["shell_exec", "file_read", "file_write", "file_list", "memory_store", "memory_recall"]
+
+[routing]
+aliases = ["TODO: activation phrases"]
+weak_aliases = ["TODO: keyword hints"]
+
+[agent]
+name = "{{NAME}}-hand"
+description = "TODO: Agent description"
+module = "builtin:chat"
+provider = "default"
+model = "default"
+max_tokens = 8192
+temperature = 0.4
+max_iterations = 30
+system_prompt = """TODO: Write a detailed system prompt for the hand's agent.
+
+Define:
+- The hand's purpose and capabilities
+- Step-by-step workflow it follows
+- Tools it should use and how
+- Output format and reporting
+"""
+
+[metadata]
+frequency = "on-demand"  # continuous | on-demand | scheduled
+token_consumption = "medium"  # low | medium | high
+default_active = true

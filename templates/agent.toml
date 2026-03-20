@@ -1,0 +1,32 @@
+name = "{{NAME}}"
+version = "0.1.0"
+description = "TODO: One-sentence description of what this agent does."
+author = "TODO"
+module = "builtin:chat"
+
+[metadata.routing]
+aliases = ["TODO: exact match phrases"]
+weak_aliases = ["TODO: partial match keywords"]
+
+[model]
+provider = "default"
+model = "default"
+max_tokens = 4096
+temperature = 0.7
+system_prompt = """TODO: Write a clear system prompt that defines:
+- Who the agent is and its role
+- What it should and should not do
+- How it should format responses
+- Any domain-specific instructions
+
+Keep it focused and under 500 words."""
+
+[resources]
+max_llm_tokens_per_hour = 100000
+
+[capabilities]
+tools = ["web_search", "web_fetch", "memory_store", "memory_recall"]
+network = ["*"]
+memory_read = ["*"]
+memory_write = ["self.*"]
+agent_spawn = false

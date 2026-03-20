@@ -1,0 +1,23 @@
+name: Documentation Issue
+description: Report incorrect, incomplete, or missing documentation
+labels: ["documentation"]
+body:
+  - type: input
+    id: which_document
+    attributes:
+      label: Which Document
+      description: The file path or page where the issue exists.
+      placeholder: e.g. README.md, docs/contributing.md, providers/openai.toml
+    validations:
+      required: true
+
+  - type: textarea
+    id: whats_wrong
+    attributes:
+      label: What's Wrong or Missing
+      description: Describe the documentation issue.
+      placeholder: |
+        e.g. The contributing guide doesn't explain how to add a new provider,
+        or the README setup instructions are outdated.
+    validations:
+      required: true

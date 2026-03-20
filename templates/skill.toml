@@ -1,0 +1,20 @@
+[skill]
+name = "{{NAME}}"
+version = "0.1.0"
+description = "TODO: One-sentence description of what this skill does."
+author = "TODO"
+tags = ["TODO"]
+
+[runtime]
+type = "promptonly"
+
+[input]
+topic = { type = "string", description = "TODO: Describe this input parameter", required = true }
+
+[prompt]
+template = """TODO: Write the prompt template for this skill.
+
+Use {{topic}} to reference input parameters.
+
+Be specific about the desired output format and constraints.
+"""

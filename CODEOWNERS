@@ -1,0 +1,12 @@
+# LibreFang Registry — Code Owners
+# Each line maps a path pattern to the team responsible for review.
+
+providers/          @librefang/models
+agents/             @librefang/agents
+hands/              @librefang/agents
+integrations/       @librefang/integrations
+skills/             @librefang/agents
+plugins/            @librefang/agents
+scripts/            @librefang/core
+.github/            @librefang/core
+*.md                @librefang/docs

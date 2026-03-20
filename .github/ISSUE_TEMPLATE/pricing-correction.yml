@@ -1,0 +1,44 @@
+name: Pricing Correction
+description: Report outdated or incorrect model pricing
+labels: ["pricing"]
+body:
+  - type: input
+    id: provider
+    attributes:
+      label: Provider Name
+      description: Which provider's pricing needs correction?
+      placeholder: e.g. openai, anthropic, groq
+    validations:
+      required: true
+
+  - type: input
+    id: model_id
+    attributes:
+      label: Model ID
+      description: The canonical model identifier.
+      placeholder: e.g. gpt-4o, claude-sonnet-4-20250514
+    validations:
+      required: true
+
+  - type: input
+    id: current_pricing
+    attributes:
+      label: Current Pricing in Registry
+      description: What does the registry currently show?
+      placeholder: "e.g. Input: $5.00 / 1M tokens, Output: $15.00 / 1M tokens"
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct_pricing
+    attributes:
+      label: Correct Pricing (with source)
+      description: |
+        Provide the correct pricing and a link to the official source
+        so we can verify the update.
+      placeholder: |
+        Input: $2.50 / 1M tokens
+        Output: $10.00 / 1M tokens
+        Source: https://openai.com/pricing
+    validations:
+      required: true

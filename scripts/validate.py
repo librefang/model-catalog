@@ -3,6 +3,9 @@
 
 Usage:
     python scripts/validate.py
+    python scripts/validate.py --strict
+    python scripts/validate.py --type providers
+    python scripts/validate.py --strict --type agents
 
 Validates:
     - Provider TOML files (required fields, valid tiers, non-negative costs, no duplicates)
@@ -11,11 +14,13 @@ Validates:
     - Integration TOML files (required fields: id, name, [transport])
     - Skill TOML files (required fields: [skill].name, [runtime].type)
     - aliases.toml parsing
+    - Cross-reference: hand [[requires]] integration references
+    - Routing alias collision detection (WARNING, ERROR with --strict)
 
 Exit code 0 on success, 1 on any validation error.
 """
 
-import os
+import argparse
 import sys
 from pathlib import Path
 
@@ -41,6 +46,8 @@ REQUIRED_MODEL_FIELDS = {
     "context_window", "max_output_tokens",
     "input_cost_per_m", "output_cost_per_m",
 }
+
+VALID_CONTENT_TYPES = {"providers", "agents", "hands", "integrations", "skills", "plugins", "aliases"}
 
 
 def load_toml(filepath: Path) -> tuple[dict | None, str | None]:
@@ -126,8 +133,14 @@ def validate_agent_file(filepath: Path) -> list[str]:
     return errors
 
 
-def validate_hand_file(filepath: Path) -> list[str]:
-    """Validate a HAND.toml file."""
+def validate_hand_file(filepath: Path, integration_ids: set[str]) -> list[str]:
+    """Validate a HAND.toml file.
+
+    Args:
+        filepath: Path to the HAND.toml file.
+        integration_ids: Set of known integration IDs (filenames without .toml
+            from the integrations/ directory) for cross-reference validation.
+    """
     data, err = load_toml(filepath)
     if err:
         return [err]
@@ -151,6 +164,19 @@ def validate_hand_file(filepath: Path) -> list[str]:
 
     if "agent" not in data:
         errors.append(f"{rel}: Missing [agent] section")
+
+    # Cross-reference: check that [[requires]] with requirement_type = "integration"
+    # reference existing integration TOML files
+    requires_list = data.get("requires", [])
+    if isinstance(requires_list, list):
+        for req in requires_list:
+            if isinstance(req, dict) and req.get("requirement_type") == "integration":
+                req_key = req.get("key", "")
+                if req_key and req_key not in integration_ids:
+                    errors.append(
+                        f"{rel}: [[requires]] references integration '{req_key}' "
+                        f"but no integrations/{req_key}.toml exists"
+                    )
 
     return errors
 
@@ -233,16 +259,52 @@ def validate_aliases_file(filepath: Path) -> list[str]:
     return errors
 
 
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(
+        description="Validate all TOML files in the LibreFang registry."
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Treat all warnings as errors.",
+    )
+    parser.add_argument(
+        "--type",
+        choices=sorted(VALID_CONTENT_TYPES),
+        dest="content_type",
+        default=None,
+        help="Validate only the specified content type (e.g. providers, agents, hands).",
+    )
+    return parser.parse_args()
+
+
+def should_validate(content_type: str, filter_type: str | None) -> bool:
+    """Check whether a content type should be validated given the --type filter."""
+    if filter_type is None:
+        return True
+    return content_type == filter_type
+
+
 def main():
+    args = parse_args()
+
     script_dir = Path(__file__).resolve().parent
     root = script_dir.parent
 
     all_errors = []
     stats = {}
 
+    # --- Collect integration IDs for cross-reference validation ---
+    integrations_dir = root / "integrations"
+    integration_ids: set[str] = set()
+    if integrations_dir.is_dir():
+        for fp in integrations_dir.glob("*.toml"):
+            integration_ids.add(fp.stem)
+
     # --- Providers ---
     providers_dir = root / "providers"
-    if providers_dir.is_dir():
+    if providers_dir.is_dir() and should_validate("providers", args.content_type):
         toml_files = sorted(providers_dir.glob("*.toml"))
         total_models = 0
         global_model_ids = {}
@@ -273,7 +335,7 @@ def main():
 
     # --- Agents ---
     agents_dir = root / "agents"
-    if agents_dir.is_dir():
+    if agents_dir.is_dir() and should_validate("agents", args.content_type):
         agent_dirs = sorted([d for d in agents_dir.iterdir() if d.is_dir() and not d.name.startswith(".")])
         for d in agent_dirs:
             agent_toml = d / "agent.toml"
@@ -285,19 +347,18 @@ def main():
 
     # --- Hands ---
     hands_dir = root / "hands"
-    if hands_dir.is_dir():
+    if hands_dir.is_dir() and should_validate("hands", args.content_type):
         hand_dirs = sorted([d for d in hands_dir.iterdir() if d.is_dir() and not d.name.startswith(".")])
         for d in hand_dirs:
             hand_toml = d / "HAND.toml"
             if hand_toml.exists():
-                all_errors.extend(validate_hand_file(hand_toml))
+                all_errors.extend(validate_hand_file(hand_toml, integration_ids))
             else:
                 all_errors.append(f"hands/{d.name}: Missing HAND.toml")
         stats["hands"] = len(hand_dirs)
 
     # --- Integrations ---
-    integrations_dir = root / "integrations"
-    if integrations_dir.is_dir():
+    if integrations_dir.is_dir() and should_validate("integrations", args.content_type):
         int_files = sorted(integrations_dir.glob("*.toml"))
         for fp in int_files:
             all_errors.extend(validate_integration_file(fp))
@@ -305,7 +366,7 @@ def main():
 
     # --- Skills ---
     skills_dir = root / "skills"
-    if skills_dir.is_dir():
+    if skills_dir.is_dir() and should_validate("skills", args.content_type):
         skill_dirs = sorted([d for d in skills_dir.iterdir() if d.is_dir() and not d.name.startswith(".")])
         for d in skill_dirs:
             skill_toml = d / "skill.toml"
@@ -317,7 +378,7 @@ def main():
 
     # --- Plugins ---
     plugins_dir = root / "plugins"
-    if plugins_dir.is_dir():
+    if plugins_dir.is_dir() and should_validate("plugins", args.content_type):
         plugin_dirs = sorted([d for d in plugins_dir.iterdir() if d.is_dir() and not d.name.startswith(".")])
         for d in plugin_dirs:
             plugin_toml = d / "plugin.toml"
@@ -342,14 +403,18 @@ def main():
         stats["plugins"] = len(plugin_dirs)
 
     # --- Aliases ---
-    all_errors.extend(validate_aliases_file(root / "aliases.toml"))
+    if should_validate("aliases", args.content_type):
+        all_errors.extend(validate_aliases_file(root / "aliases.toml"))
 
-    # --- Cross-type: duplicate routing aliases ---
+    # --- Cross-type: duplicate routing aliases (now treated as ERRORS) ---
+    # Only run this cross-type check when no --type filter is active,
+    # or when filtering to agents or hands specifically.
     all_aliases = {}  # alias -> (type, name)
-    warnings = []
+    alias_collisions = []
+    run_alias_check = args.content_type is None or args.content_type in ("agents", "hands")
 
     # Collect agent routing aliases
-    if agents_dir.is_dir():
+    if run_alias_check and agents_dir.is_dir():
         for d in sorted([d for d in agents_dir.iterdir() if d.is_dir() and not d.name.startswith(".")]):
             data, _ = load_toml(d / "agent.toml")
             if data:
@@ -358,12 +423,12 @@ def main():
                     key = alias.lower()
                     if key in all_aliases:
                         prev_type, prev_name = all_aliases[key]
-                        warnings.append(f"Routing alias '{alias}' used by both {prev_type}/{prev_name} and agent/{d.name}")
+                        alias_collisions.append(f"Routing alias '{alias}' used by both {prev_type}/{prev_name} and agent/{d.name}")
                     else:
                         all_aliases[key] = ("agent", d.name)
 
     # Collect hand routing aliases
-    if hands_dir.is_dir():
+    if run_alias_check and hands_dir.is_dir():
         for d in sorted([d for d in hands_dir.iterdir() if d.is_dir() and not d.name.startswith(".")]):
             data, _ = load_toml(d / "HAND.toml")
             if data:
@@ -372,13 +437,25 @@ def main():
                     key = alias.lower()
                     if key in all_aliases:
                         prev_type, prev_name = all_aliases[key]
-                        warnings.append(f"Routing alias '{alias}' used by both {prev_type}/{prev_name} and hand/{d.name}")
+                        alias_collisions.append(f"Routing alias '{alias}' used by both {prev_type}/{prev_name} and hand/{d.name}")
                     else:
                         all_aliases[key] = ("hand", d.name)
+
+    # --- Collect warnings ---
+    warnings = list(alias_collisions)
+
+    # --- In --strict mode, promote warnings to errors ---
+    if args.strict and warnings:
+        all_errors.extend(warnings)
+        warnings = []
 
     # --- Report ---
     print("=" * 60)
     print("LibreFang Registry Validation")
+    if args.content_type:
+        print(f"  Filter: --type {args.content_type}")
+    if args.strict:
+        print("  Mode: --strict (warnings are errors)")
     print("=" * 60)
     print()
 

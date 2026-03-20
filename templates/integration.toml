@@ -1,0 +1,29 @@
+id = "{{NAME}}"
+name = "TODO: Service Display Name"
+description = "TODO: One-sentence description of this integration."
+category = "devtools"  # devtools | communication | storage | monitoring | data | productivity
+icon = "TODO"
+tags = ["TODO"]
+
+[transport]
+type = "stdio"
+command = "npx"
+args = ["-y", "TODO: @scope/mcp-server-package"]
+
+[[required_env]]
+name = "TODO_API_KEY"
+label = "TODO: API Key"
+help = "TODO: How to obtain this key"
+is_secret = true
+get_url = "https://example.com/settings"
+
+[health_check]
+interval_secs = 60
+unhealthy_threshold = 3
+
+setup_instructions = """
+TODO: Step-by-step setup instructions.
+1. Go to ...
+2. Create an API key with ...
+3. Paste the key above.
+"""

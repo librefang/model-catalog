@@ -27,6 +27,7 @@ context_window = 128000                # Required: maximum input tokens
 max_output_tokens = 16384              # Required: maximum output tokens
 input_cost_per_m = 2.50                # Required: USD per million input tokens (0.0 for free/local)
 output_cost_per_m = 10.0               # Required: USD per million output tokens (0.0 for free/local)
+last_verified = "2025-03-15"           # Optional: ISO date when pricing was last verified against official sources
 supports_tools = true                  # Optional: tool/function calling support (default: false)
 supports_vision = true                 # Optional: vision/image input support (default: false)
 supports_streaming = true              # Optional: streaming response support (default: true)

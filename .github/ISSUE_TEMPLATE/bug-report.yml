@@ -1,0 +1,49 @@
+name: Bug Report
+description: Report an issue with existing registry content (wrong data, broken config, etc.)
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: Content Type
+      description: What type of registry content has the issue?
+      options:
+        - Provider
+        - Agent
+        - Hand
+        - Integration (MCP server)
+        - Skill
+        - Plugin
+    validations:
+      required: true
+
+  - type: input
+    id: content_name
+    attributes:
+      label: Content Name
+      description: The name or ID of the affected content.
+      placeholder: e.g. openai, code-review-agent, github
+    validations:
+      required: true
+
+  - type: textarea
+    id: whats_wrong
+    attributes:
+      label: What's Wrong
+      description: Describe the issue you found.
+      placeholder: |
+        e.g. The integration command listed in the registry fails to install,
+        or the agent config references a model that doesn't exist.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_vs_actual
+    attributes:
+      label: Expected vs Actual
+      description: What did you expect, and what actually happened?
+      placeholder: |
+        Expected: The provider config should list gpt-4o as a supported model.
+        Actual: gpt-4o is missing from the models array.
+    validations:
+      required: true

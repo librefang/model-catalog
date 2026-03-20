@@ -222,6 +222,31 @@ aliases = ["short-name"]
 - [ ] `context_window` and `max_output_tokens` are positive integers
 - [ ] Boolean capability fields are correct
 - [ ] Pricing verified from official source
+- [ ] `last_verified` date included (ISO format, e.g. `2025-03-15`)
+
+### Pricing Verification
+
+**Always verify pricing from official sources before submitting.** Model pricing changes frequently and stale data leads to incorrect cost tracking for users.
+
+When adding or updating model pricing:
+
+1. Check the provider's official pricing page (see links below)
+2. Record the exact `input_cost_per_m` and `output_cost_per_m` values in USD per million tokens
+3. Include the `last_verified` field with today's date in ISO format (`YYYY-MM-DD`)
+4. If a model is subscription-based (e.g. GitHub Copilot) or has no public per-token pricing, note this in your PR description
+
+Common official pricing pages:
+
+- **OpenAI**: https://openai.com/pricing
+- **Anthropic**: https://docs.anthropic.com/en/docs/about-claude/models
+- **Google Gemini**: https://ai.google.dev/pricing
+- **DeepSeek**: https://platform.deepseek.com/api-docs/pricing
+- **Mistral**: https://mistral.ai/technology/#pricing
+- **Groq**: https://wow.groq.com/
+- **xAI**: https://docs.x.ai/docs
+- **Together**: https://www.together.ai/pricing
+- **Fireworks**: https://fireworks.ai/pricing
+- **OpenRouter**: https://openrouter.ai/models (per-model pricing listed)
 
 ## Where to Find Model Information
 
