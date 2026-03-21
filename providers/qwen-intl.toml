@@ -8,6 +8,10 @@ api_key_env = "DASHSCOPE_API_KEY"
 base_url = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
 key_required = true
 
+[provider.regions]
+singapore = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+us = "https://dashscope-us.aliyuncs.com/compatible-mode/v1"
+
 [[models]]
 id = "qwen-max"
 display_name = "Qwen Max"
