@@ -449,3 +449,10 @@ format = "number"
 label = "Subreddits Monitored"
 memory_key = "reddit_hand_subreddits_monitored"
 format = "number"
+
+# ─── Token & Performance Metadata ─────────────────────────────────────────────
+
+[metadata]
+frequency = "hourly"
+token_consumption = "medium"
+default_active = false

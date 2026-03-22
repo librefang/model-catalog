@@ -439,3 +439,10 @@ format = "number"
 label = "Engagement Rate"
 memory_key = "twitter_hand_engagement_rate"
 format = "percentage"
+
+# ─── Token & Performance Metadata ─────────────────────────────────────────────
+
+[metadata]
+frequency = "hourly"
+token_consumption = "medium"
+default_active = false

@@ -636,3 +636,10 @@ format = "number"
 label = "Published to WhatsApp"
 memory_key = "clip_hand_clips_published_whatsapp"
 format = "number"
+
+# ─── Token & Performance Metadata ─────────────────────────────────────────────
+
+[metadata]
+frequency = "on-demand"
+token_consumption = "medium"
+default_active = false

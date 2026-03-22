@@ -385,3 +385,10 @@ format = "percentage"
 label = "Profile Views"
 memory_key = "linkedin_hand_profile_views"
 format = "number"
+
+# ─── Token & Performance Metadata ─────────────────────────────────────────────
+
+[metadata]
+frequency = "daily"
+token_consumption = "medium"
+default_active = false
