@@ -1,4 +1,5 @@
 id = "apitester"
+version = "1.0.0"
 name = "API Tester Hand"
 description = "Autonomous API testing agent — endpoint discovery, request validation, load testing, and regression detection"
 category = "development"
@@ -29,6 +30,10 @@ aliases = [
   "load test",
   "regression test",
   "api discovery",
+  "test api",
+  "api testing",
+  "api validation",
+  "test endpoint",
 ]
 weak_aliases = [
   "api debug",
@@ -36,6 +41,8 @@ weak_aliases = [
   "swagger",
   "openapi",
   "postman",
+  "stress test",
+  "http test",
 ]
 
 # ─── Configurable settings ───────────────────────────────────────────────────
