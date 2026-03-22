@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "DevOps Hand"
 description = "Autonomous DevOps engineer — CI/CD management, infrastructure monitoring, deployment automation, and incident response"
 
-[i18n.zh]
-name = "DevOps Hand"
-description = "自主 DevOps 工程师——CI/CD 管理、基础设施监控、部署自动化和事件响应"
-
 category = "development"
 icon = "👷"
 
@@ -493,3 +489,7 @@ frequency = "continuous"
 token_consumption = "high"
 default_active = false
 activation_warning = "DevOps hand runs continuously and monitors infrastructure, consuming tokens."
+
+[i18n.zh]
+name = "DevOps Hand"
+description = "自主 DevOps 工程师——CI/CD 管理、基础设施监控、部署自动化和事件响应"

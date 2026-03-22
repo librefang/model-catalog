@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "Collector Hand"
 description = "Autonomous intelligence collector — monitors any target continuously with change detection and knowledge graphs"
 
-[i18n.zh]
-name = "情报采集 Hand"
-description = "自主情报采集智能体——持续监控目标，支持变更检测和知识图谱"
-
 category = "data"
 icon = "🔍"
 
@@ -394,3 +390,7 @@ frequency = "continuous"
 token_consumption = "high"
 default_active = false
 activation_warning = "Collector hand runs continuously and monitors targets, consuming tokens."
+
+[i18n.zh]
+name = "情报采集 Hand"
+description = "自主情报采集智能体——持续监控目标，支持变更检测和知识图谱"

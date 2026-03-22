@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "LinkedIn Hand"
 description = "Autonomous LinkedIn manager — profile optimization, content creation, networking, and professional engagement"
 
-[i18n.zh]
-name = "LinkedIn Hand"
-description = "自主 LinkedIn 管理——个人资料优化、内容创作、人脉拓展和职业互动"
-
 category = "communication"
 icon = "\U0001F4BC"
 tools = [
@@ -397,3 +393,7 @@ format = "number"
 frequency = "daily"
 token_consumption = "medium"
 default_active = false
+
+[i18n.zh]
+name = "LinkedIn Hand"
+description = "自主 LinkedIn 管理——个人资料优化、内容创作、人脉拓展和职业互动"

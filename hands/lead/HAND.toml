@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "Lead Hand"
 description = "Autonomous lead generation — discovers, enriches, and delivers qualified leads on a schedule"
 
-[i18n.zh]
-name = "线索生成 Hand"
-description = "自主线索生成——按计划发现、充实并交付合格的潜在客户"
-
 category = "data"
 icon = "📊"
 
@@ -383,3 +379,7 @@ frequency = "continuous"
 token_consumption = "medium"
 default_active = false
 activation_warning = "Lead hand runs continuously and generates leads on schedule, consuming tokens."
+
+[i18n.zh]
+name = "线索生成 Hand"
+description = "自主线索生成——按计划发现、充实并交付合格的潜在客户"

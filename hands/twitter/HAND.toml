@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "Twitter Hand"
 description = "Autonomous Twitter/X manager — content creation, scheduled posting, engagement, and performance tracking"
 
-[i18n.zh]
-name = "Twitter Hand"
-description = "自主 Twitter/X 管理——内容创作、定时发布、互动管理和效果追踪"
-
 category = "communication"
 icon = "\U0001D54F"
 tools = [
@@ -529,3 +525,7 @@ format = "percentage"
 frequency = "hourly"
 token_consumption = "medium"
 default_active = false
+
+[i18n.zh]
+name = "Twitter Hand"
+description = "自主 Twitter/X 管理——内容创作、定时发布、互动管理和效果追踪"

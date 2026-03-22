@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "Trading Hand"
 description = "Autonomous market intelligence and trading engine — multi-signal analysis, adversarial bull/bear reasoning, calibrated confidence scoring, strict risk management, and portfolio-level analytics"
 
-[i18n.zh]
-name = "交易 Hand"
-description = "自主市场情报与交易引擎——多信号分析、对抗性多空推理、校准置信度评分、严格风控和投资组合分析"
-
 category = "data"
 icon = "📈"
 
@@ -784,3 +780,7 @@ token_consumption = "high"
 default_active = false
 # Warning shown when user tries to activate
 activation_warning = "Trading hand runs continuously and consumes tokens. Deactivate when not trading."
+
+[i18n.zh]
+name = "交易 Hand"
+description = "自主市场情报与交易引擎——多信号分析、对抗性多空推理、校准置信度评分、严格风控和投资组合分析"

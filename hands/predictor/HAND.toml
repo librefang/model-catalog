@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "Predictor Hand"
 description = "Autonomous future predictor — collects signals, builds reasoning chains, makes calibrated predictions, and tracks accuracy"
 
-[i18n.zh]
-name = "预测 Hand"
-description = "自主预测智能体——收集信号、构建推理链、做出校准预测并追踪准确度"
-
 category = "data"
 icon = "🔮"
 
@@ -428,3 +424,7 @@ frequency = "continuous"
 token_consumption = "high"
 default_active = false
 activation_warning = "Predictor hand runs continuously and generates predictions, consuming tokens."
+
+[i18n.zh]
+name = "预测 Hand"
+description = "自主预测智能体——收集信号、构建推理链、做出校准预测并追踪准确度"

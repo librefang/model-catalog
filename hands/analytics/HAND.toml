@@ -3,10 +3,6 @@ version = "1.0.0"
 name = "Analytics Hand"
 description = "Autonomous data analytics agent — data collection, analysis, visualization, dashboards, and automated reporting"
 
-[i18n.zh]
-name = "数据分析 Hand"
-description = "自主数据分析智能体——数据采集、分析、可视化、仪表盘和自动化报告"
-
 category = "data"
 icon = "📈"
 tools = [
@@ -487,3 +483,7 @@ frequency = "continuous"
 token_consumption = "high"
 default_active = true
 # Note: High consumption when actively analyzing data, lower when idle
+
+[i18n.zh]
+name = "数据分析 Hand"
+description = "自主数据分析智能体——数据采集、分析、可视化、仪表盘和自动化报告"
