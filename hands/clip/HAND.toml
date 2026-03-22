@@ -2,6 +2,11 @@ id = "clip"
 version = "1.0.0"
 name = "Clip Hand"
 description = "Turns long-form video into viral short clips with captions and thumbnails"
+
+[i18n.zh]
+name = "视频剪辑 Hand"
+description = "将长视频自动剪辑为病毒式短视频，配有字幕和缩略图"
+
 category = "content"
 icon = "\U0001F3AC"
 tools = [

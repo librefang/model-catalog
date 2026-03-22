@@ -2,6 +2,11 @@ id = "apitester"
 version = "1.0.0"
 name = "API Tester Hand"
 description = "Autonomous API testing agent — endpoint discovery, request validation, load testing, and regression detection"
+
+[i18n.zh]
+name = "API 测试 Hand"
+description = "自主 API 测试智能体——端点发现、请求验证、负载测试和回归检测"
+
 category = "development"
 icon = "🔌"
 

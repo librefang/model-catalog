@@ -2,6 +2,11 @@ id = "researcher"
 version = "1.0.0"
 name = "Researcher Hand"
 description = "Autonomous deep researcher — exhaustive investigation, cross-referencing, fact-checking, and structured reports"
+
+[i18n.zh]
+name = "深度研究 Hand"
+description = "自主深度研究员——全面调研、交叉验证、事实核查和结构化报告"
+
 category = "productivity"
 icon = "🧪"
 

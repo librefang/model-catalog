@@ -2,6 +2,11 @@ id = "strategist"
 version = "1.0.0"
 name = "Strategist Hand"
 description = "Autonomous strategy analyst — market research, competitive analysis, business planning, and strategic recommendations"
+
+[i18n.zh]
+name = "策略分析 Hand"
+description = "自主策略分析师——市场研究、竞争分析、商业规划和战略建议"
+
 category = "productivity"
 icon = "🎯"
 

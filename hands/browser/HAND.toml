@@ -2,6 +2,11 @@ id = "browser"
 version = "1.0.0"
 name = "Browser Hand"
 description = "Autonomous web browser — navigates sites, fills forms, clicks buttons, and completes multi-step web tasks with user approval for purchases"
+
+[i18n.zh]
+name = "浏览器 Hand"
+description = "自主网页浏览器——导航网站、填写表单、点击按钮，经用户批准后完成多步骤网页任务"
+
 category = "productivity"
 icon = "🌐"
 
