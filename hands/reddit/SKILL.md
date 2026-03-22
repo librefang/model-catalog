@@ -13,14 +13,16 @@ runtime: prompt_only
 
 Reddit API requires OAuth2 authentication for all endpoints.
 
-**Step 1: Get access token**:
+**Step 1: Get access token (app-only / client_credentials)**:
 ```bash
 curl -s -X POST "https://www.reddit.com/api/v1/access_token" \
   -u "$REDDIT_CLIENT_ID:$REDDIT_CLIENT_SECRET" \
-  -d "grant_type=password&username=$REDDIT_USERNAME&password=$REDDIT_PASSWORD" \
+  -d "grant_type=client_credentials" \
   -A "LibreFang Reddit Hand/1.0"
 ```
 Response: `{"access_token": "...", "token_type": "bearer", "expires_in": 86400, "scope": "*"}`
+
+> **Note:** `client_credentials` provides app-only access. Most read endpoints (listing posts, fetching comments, searching) work normally. Posting and commenting use the app's identity. For full user-level actions (e.g., voting, managing subscriptions), the more complex OAuth2 authorization code flow is required.
 
 **All subsequent requests** must include:
 ```
@@ -101,7 +103,7 @@ curl -s -H "Authorization: Bearer $ACCESS_TOKEN" \
 | Type | Limit | Window |
 |------|-------|--------|
 | OAuth authenticated | 10 requests | 1 minute |
-| With user-level auth | 30 requests | 1 minute |
+| With app-only auth | 30 requests | 1 minute |
 | Posting | ~1 post | 10 minutes (varies by karma) |
 | Commenting | ~1 comment | varies by karma |
 

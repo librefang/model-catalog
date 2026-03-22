@@ -44,7 +44,7 @@ steps = [
   "Select 'script' as the app type",
   "Fill in name and redirect URI (http://localhost:8080)",
   "Copy the client ID (under the app name) and secret",
-  "Set REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USERNAME, and REDDIT_PASSWORD as environment variables",
+  "Set REDDIT_CLIENT_ID and REDDIT_CLIENT_SECRET as environment variables",
   "Restart LibreFang or reload config for the change to take effect",
 ]
 
@@ -67,42 +67,6 @@ steps = [
   "Fill in name and redirect URI (http://localhost:8080)",
   "Copy the secret shown below the app description",
   "Set REDDIT_CLIENT_SECRET as an environment variable",
-  "Restart LibreFang or reload config for the change to take effect",
-]
-
-[[requires]]
-key = "REDDIT_USERNAME"
-label = "Reddit Username"
-requirement_type = "api_key"
-check_value = "REDDIT_USERNAME"
-description = "Reddit account username. Required for OAuth2 password-grant authentication to post and comment."
-
-[requires.install]
-signup_url = "https://www.reddit.com/register"
-docs_url = "https://www.reddit.com/dev/api/"
-env_example = "REDDIT_USERNAME=your_reddit_username"
-estimated_time = "1-2 min"
-steps = [
-  "Use the Reddit account username you want the hand to act as",
-  "Set REDDIT_USERNAME as an environment variable",
-  "Restart LibreFang or reload config for the change to take effect",
-]
-
-[[requires]]
-key = "REDDIT_PASSWORD"
-label = "Reddit Password"
-requirement_type = "api_key"
-check_value = "REDDIT_PASSWORD"
-description = "Reddit account password. Required for OAuth2 password-grant authentication to post and comment."
-
-[requires.install]
-signup_url = "https://www.reddit.com/register"
-docs_url = "https://www.reddit.com/dev/api/"
-env_example = "REDDIT_PASSWORD=your_reddit_password"
-estimated_time = "1-2 min"
-steps = [
-  "Use the password for the Reddit account configured in REDDIT_USERNAME",
-  "Set REDDIT_PASSWORD as an environment variable",
   "Restart LibreFang or reload config for the change to take effect",
 ]
 
@@ -260,19 +224,20 @@ Detect the operating system:
 python -c "import platform; print(platform.system())"
 ```
 
-Authenticate with Reddit API using OAuth2:
+Authenticate with Reddit API using OAuth2 client_credentials (app-only auth):
 ```
 curl -s -X POST "https://www.reddit.com/api/v1/access_token" \
   -u "$REDDIT_CLIENT_ID:$REDDIT_CLIENT_SECRET" \
-  -d "grant_type=password&username=$REDDIT_USERNAME&password=$REDDIT_PASSWORD" \
+  -d "grant_type=client_credentials" \
   -A "LibreFang Reddit Hand/1.0" \
   -o reddit_auth.json
 ```
 Extract the access_token from the response for subsequent API calls.
+Note: This is app-only authentication — most read endpoints work, but posting and commenting require the app's identity. No user-level context is available.
 
 Recover state:
 1. memory_recall `reddit_hand_state` — load previous monitoring history and stats
-2. Read **User Configuration** for subreddits, monitor_mode, content_style, approval_mode, etc.
+2. Read **Hand Settings** for subreddits, monitor_mode, content_style, approval_mode, etc.
 3. file_read `reddit_queue.json` if it exists — pending posts/replies
 4. knowledge_query for previously tracked threads and engagement data
 

@@ -19,6 +19,12 @@ Authorization: Bearer $TWITTER_BEARER_TOKEN
 
 **Environment variable**: `TWITTER_BEARER_TOKEN`
 
+**Authentication modes**:
+- **Bearer Token only** (default): Sufficient for posting tweets, reading timelines, and searching. All core functionality works with just the Bearer Token.
+- **Bearer Token + OAuth 1.0a** (optional): Required for user-context operations such as liking tweets, retweeting, following/unfollowing, and accessing DMs. Set `TWITTER_API_KEY`, `TWITTER_API_SECRET`, `TWITTER_ACCESS_TOKEN`, and `TWITTER_ACCESS_TOKEN_SECRET` to enable these features.
+
+> **Note**: The Like endpoint (`POST /2/users/:id/likes`) and Retweet endpoint (`POST /2/users/:id/retweets`) require OAuth 1.0a User Context authentication. If only Bearer Token is configured, these operations will be skipped with a warning.
+
 ### Core Endpoints
 
 **Get authenticated user info**:

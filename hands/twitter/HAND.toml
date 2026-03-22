@@ -59,6 +59,84 @@ steps = [
   "Restart LibreFang or reload config for the change to take effect",
 ]
 
+[[requires]]
+key = "TWITTER_API_KEY"
+label = "Twitter API Key (Consumer Key)"
+requirement_type = "api_key"
+check_value = "TWITTER_API_KEY"
+optional = true
+description = "OAuth 1.0a Consumer Key. Optional — only needed for user-context operations (liking, retweeting, following as a specific user)."
+
+[requires.install]
+signup_url = "https://developer.twitter.com/en/portal/dashboard"
+docs_url = "https://developer.twitter.com/en/docs/authentication/oauth-1-0a"
+env_example = "TWITTER_API_KEY=your_api_key_here"
+estimated_time = "5-10 min"
+steps = [
+  "Go to developer.twitter.com and open your App settings",
+  "Navigate to 'Keys and tokens' page",
+  "Copy the 'API Key' (also called Consumer Key)",
+  "Set it as TWITTER_API_KEY environment variable",
+]
+
+[[requires]]
+key = "TWITTER_API_SECRET"
+label = "Twitter API Secret (Consumer Secret)"
+requirement_type = "api_key"
+check_value = "TWITTER_API_SECRET"
+optional = true
+description = "OAuth 1.0a Consumer Secret. Optional — only needed alongside TWITTER_API_KEY for user-context operations."
+
+[requires.install]
+signup_url = "https://developer.twitter.com/en/portal/dashboard"
+docs_url = "https://developer.twitter.com/en/docs/authentication/oauth-1-0a"
+env_example = "TWITTER_API_SECRET=your_api_secret_here"
+estimated_time = "2-3 min"
+steps = [
+  "On the same 'Keys and tokens' page as the API Key",
+  "Copy the 'API Secret' (also called Consumer Secret)",
+  "Set it as TWITTER_API_SECRET environment variable",
+]
+
+[[requires]]
+key = "TWITTER_ACCESS_TOKEN"
+label = "Twitter Access Token"
+requirement_type = "api_key"
+check_value = "TWITTER_ACCESS_TOKEN"
+optional = true
+description = "OAuth 1.0a user Access Token. Optional — only needed for user-context operations."
+
+[requires.install]
+signup_url = "https://developer.twitter.com/en/portal/dashboard"
+docs_url = "https://developer.twitter.com/en/docs/authentication/oauth-1-0a"
+env_example = "TWITTER_ACCESS_TOKEN=your_access_token_here"
+estimated_time = "2-3 min"
+steps = [
+  "On the 'Keys and tokens' page, scroll to 'Authentication Tokens'",
+  "Generate an Access Token and Secret",
+  "Copy the Access Token",
+  "Set it as TWITTER_ACCESS_TOKEN environment variable",
+]
+
+[[requires]]
+key = "TWITTER_ACCESS_TOKEN_SECRET"
+label = "Twitter Access Token Secret"
+requirement_type = "api_key"
+check_value = "TWITTER_ACCESS_TOKEN_SECRET"
+optional = true
+description = "OAuth 1.0a user Access Token Secret. Optional — only needed alongside TWITTER_ACCESS_TOKEN for user-context operations."
+
+[requires.install]
+signup_url = "https://developer.twitter.com/en/portal/dashboard"
+docs_url = "https://developer.twitter.com/en/docs/authentication/oauth-1-0a"
+env_example = "TWITTER_ACCESS_TOKEN_SECRET=your_access_token_secret_here"
+estimated_time = "2-3 min"
+steps = [
+  "Generated alongside the Access Token above",
+  "Copy the Access Token Secret",
+  "Set it as TWITTER_ACCESS_TOKEN_SECRET environment variable",
+]
+
 # ─── Configurable settings ───────────────────────────────────────────────────
 
 [[settings]]
