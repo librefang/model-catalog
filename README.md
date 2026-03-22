@@ -16,6 +16,8 @@ This repository is the **single source of truth** for all installable content de
 | [Aliases](#aliases) | 70 | Short names mapped to canonical model IDs |
 | [Plugins](#plugins) | 10 | Memory, guardrails, and conversation plugins |
 | [Skills](#skills) | 2 | Reusable prompt templates and Python scripts |
+| [Workflows](#workflows) | 9 | Pre-built multi-agent workflow definitions |
+| [Templates](#templates) | 6 | Starter templates for each content type |
 
 ## Repository Structure
 
@@ -50,6 +52,16 @@ librefang-registry/
 ├── skills/                # Reusable skill definitions
 │   ├── custom-skill-prompt/skill.toml
 │   └── custom-skill-python/
+├── workflows/             # Pre-built multi-agent workflow definitions
+│   ├── code-review.toml
+│   ├── research.toml
+│   └── ...                (9 workflows)
+├── templates/             # Starter templates for each content type
+│   ├── agent.toml
+│   ├── HAND.toml
+│   └── ...                (6 templates)
+├── docs/                  # Additional documentation
+│   └── content-guide.md   # Content contribution guidelines
 ├── aliases.toml           # Global model alias mappings (70 aliases)
 ├── schema.toml            # Provider/model schema reference
 ├── scripts/
@@ -221,6 +233,25 @@ type = "promptonly"
 [prompt]
 template = "Create a meeting agenda for: {{topic}}"
 ```
+
+### Workflows
+
+Pre-built multi-agent workflow definitions in `workflows/<name>.toml` orchestrate multiple agents for complex tasks.
+
+**9 workflows:** brainstorm, code-review, content-pipeline, content-review, customer-support, data-pipeline, research, translate-polish, weekly-report
+
+### Templates
+
+Starter templates in `templates/` for creating new content. Copy a template to get started quickly:
+
+```bash
+cp templates/agent.toml agents/my-agent/agent.toml
+cp templates/HAND.toml hands/my-hand/HAND.toml
+```
+
+**6 templates:** agent.toml, HAND.toml, integration.toml, plugin.toml, provider.toml, skill.toml
+
+See also [docs/content-guide.md](docs/content-guide.md) for naming conventions and contribution guidelines.
 
 ## Usage
 
